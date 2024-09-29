@@ -104,7 +104,10 @@ class WebGraph():
 
         else:
             v = torch.zeros(n)
-            # FIXME: implement Task 2
+            for i in range(0, n):
+                url = self._index_to_url(i)
+                if url_satisfies_query(url, query):
+                    v[i] = 1
         
         v_sum = torch.sum(v)
         assert(v_sum>0)
@@ -139,6 +142,8 @@ class WebGraph():
             x = xprev.detach().clone()
             for i in range(max_iterations):
                 xprev = x.detach().clone()
+                addend = (alpha * (x.t() @ a)) * v.t() + (1 - alpha) * v.t()
+                x = self.P.t().matmul(x).mul_(alpha).add_(addend.t()).div_(torch.norm(x))
 
                 # compute the new x vector using Eq (5.1)
                 # FIXME: Task 1
