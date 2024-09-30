@@ -73,7 +73,7 @@ Thus, by using sparse matrix operations, we will be able to speed up the code si
 
 ## Task 1: the power method
 
-We implement the `WebGraph.power_method` function in `pagerank.py` for computing the pagerank vector. As mentioned above, the sparsity of matrix P greatly impacts the runtime. We use the following definition for Pagerank vector $x^k: x^k = alpha x^(k-1) P + (alpha x^(k-1) a + (1 - alpha)) v^T$.
+We implement the `WebGraph.power_method` function in `pagerank.py` for computing the pagerank vector. As mentioned above, the sparsity of matrix P greatly impacts the runtime. We use the following definition for Pagerank vector $x^k: x^k = alpha x^{k-1} P + (alpha x^{k-1} a + (1 - alpha)) v^T$.
 
 **Part 1:**
 
